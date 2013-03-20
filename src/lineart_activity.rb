@@ -29,16 +29,17 @@ class LineartView < android.view.SurfaceView
 
         if canvas
           canvas.drawColor(android.graphics.Color::BLACK)
+
           paint = Paint.new
+          paint.setStrokeWidth(2.0)
+          paint.setAntiAlias(true)
 
           $lineart.polygons.each do |polygon|
-            color  = polygon.color
-            points = polygon.points
+            color = polygon.color
+            paint.setColor(android.graphics.Color.argb(255, color.r, color.g, color.b))
 
+            points = polygon.points
             points.length.times do |i|
-              paint.setColor(android.graphics.Color.argb(255, color.r, color.g, color.b))
-              paint.setStrokeWidth(2.0)
-              paint.setAntiAlias(true)
               canvas.drawLine(
                 points[i].x, points[i].y,
                 points[(i + 1) % Lineart::POINTS_NUM].x, points[(i + 1) % Lineart::POINTS_NUM].y,

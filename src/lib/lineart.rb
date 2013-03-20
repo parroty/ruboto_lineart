@@ -152,8 +152,8 @@ class Generator
 end
 
 class Lineart
-  SCREEN_WIDTH  = 160
-  SCREEN_HEIGHT = 120
+  SCREEN_WIDTH  = 320
+  SCREEN_HEIGHT = 240
   POLYGON_NUM   = 10
   POINTS_NUM    = 4
 
